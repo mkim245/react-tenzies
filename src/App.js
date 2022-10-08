@@ -3,9 +3,17 @@ import Die from "./die"
 import './style.css';
 
 function App() {
+   function allNewDice() {
+    const newDice = [];
+    for (let i = 0; i < 10; i++) {
+      newDice.push(Math.floor(Math.random() * 6) + 1);
+    }
+    return newDice;
+  }
+  
   return (
     <main>
-      <div className ="dice-container">
+      <div className="dice-container">
         <Die value="1" />
         <Die value="2" />
         <Die value="3" />
