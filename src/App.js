@@ -5,6 +5,7 @@ import { nanoid } from "nanoid"
 
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
+  const [tenzies, setTenzies] = React.useState(false);
 
   function generateNewDie() { //helper function
     return {
@@ -23,7 +24,6 @@ function App() {
   }
 
   function rollDice() {
-    // setDice(allNewDice())
     setDice(oldDice => oldDice.map(die => {
       return die.isHeld
         ? die
@@ -48,6 +48,10 @@ function App() {
       holdDice={() => holdDice(die.id)}
     />
   ))
+
+  React.useEffect(() => {
+    console.log("Dice state changed")
+  }, [dice])
 
   return (
     <main>
