@@ -49,6 +49,14 @@ main {
   font-size: 2rem;
 }
 
+.dot {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: white;
+}
+
 .roll-dice {
   height: 50px;
   width: 150px;
