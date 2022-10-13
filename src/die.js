@@ -7,22 +7,22 @@ export default function Die(props) {
 
   function numberToDot(number) {
     if (number === 1) {
-      return "A"
+      return <span className="dot"></span>
     }
     if (number === 2) {
-      return "B"
+      return <><span className="dot"></span><span className="dot"></span></>
     }
     if (number === 3) {
-      return "C"
+      return <><span className="dot"></span><span className="dot"></span><span className="dot"></span></>
     }
     if (number === 4) {
-      return "D"
+      return <><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span></>
     }
     if (number === 5) {
-      return "E"
+      return <><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span></>
     }
     if (number === 6) {
-      return "F"
+      return <><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span></>
     }
   }
 
@@ -32,12 +32,7 @@ export default function Die(props) {
       style={styles}
       onClick={props.holdDice}
     >
-      {/* <h2 className="die-num">{props.value}</h2> */}
-      <span
-        className={props.value === 1 ? "dot" : "die-num"}
-      >
-        {numberToDot(props.value)}
-      </span>
+      {numberToDot(props.value)}
     </div>
   )
 }
