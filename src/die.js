@@ -7,32 +7,72 @@ export default function Die(props) {
 
   function numberToDot(number) {
     if (number === 1) {
-      return <span className="dot"></span>
+      return <div className="dice1" style={styles}
+        onClick={props.holdDice}>
+        <span className="dot"></span>
+      </div>
     }
     if (number === 2) {
-      return <><span className="dot"></span><span className="dot"></span></>
+      return <><div className="dice2" style={styles}
+        onClick={props.holdDice}>
+        <span className="dot"></span>
+        <span className="dot"></span>
+      </div></>
     }
     if (number === 3) {
-      return <><span className="dot"></span><span className="dot"></span><span className="dot"></span></>
+      return <><div className="dice3" style={styles}
+        onClick={props.holdDice}>
+        <span className="dot"></span>
+        <span className="dot"></span>
+        <span className="dot"></span>
+      </div></>
     }
     if (number === 4) {
-      return <><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span></>
+      return <><div className="dice4" style={styles}
+        onClick={props.holdDice}>
+        <div class="column">
+          <span className="dot"></span>
+          <span className="dot"></span></div>
+        <div class="column">
+          <span className="dot"></span>
+          <span className="dot"></span></div>
+      </div></>
     }
     if (number === 5) {
-      return <><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span></>
+      return <><div className="dice5" style={styles}
+        onClick={props.holdDice}>
+        <div class="column">
+          <span className="dot"></span>
+          <span className="dot"></span></div>
+        <div class="column">
+          <span className="dot"></span></div>
+        <div class="column">
+          <span className="dot"></span>
+          <span className="dot"></span></div>
+      </div></>
     }
     if (number === 6) {
-      return <><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span><span className="dot"></span></>
+      return <><div className="dice6" style={styles}
+        onClick={props.holdDice}>
+        <div class="column">
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span></div>
+        <div class="column">
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span></div>
+      </div></>
     }
   }
 
 
   return (
-    <div className="die-face"
-      style={styles}
-      onClick={props.holdDice}
-    >
-      {numberToDot(props.value)}
-    </div>
+    // <div className="die-face"
+    //   style={styles}
+    //   onClick={props.holdDice}
+    // >
+    <>{numberToDot(props.value)}</>
+    // </div>
   )
 }
