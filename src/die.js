@@ -68,11 +68,6 @@ export default function Die(props) {
 
 
   return (
-    // <div className="die-face"
-    //   style={styles}
-    //   onClick={props.holdDice}
-    // >
     <>{numberToDot(props.value)}</>
-    // </div>
   )
 }

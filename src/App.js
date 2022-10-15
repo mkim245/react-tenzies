@@ -9,7 +9,6 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false);
   const [countRoll, setCountRoll] = React.useState(1);
 
-
   function generateNewDie() { //helper function
     return {
       value: Math.floor(Math.random() * 6) + 1,
@@ -37,7 +36,7 @@ function App() {
       setTenzies(false)
       setDice(allNewDice())
     }
-    setCountRoll(countRoll+1)
+    setCountRoll(countRoll + 1)
   }
 
   function holdDice(id) {
@@ -80,8 +79,11 @@ function App() {
         className="roll-dice"
         onClick={rollDice}
       >
-        {tenzies ? "New Game" : `Roll (${countRoll})` }
+        {tenzies ? "New Game" : `Roll (${countRoll})`}
       </button>
+      <div className="time">
+        <span className="seconds">00</span>:<span className="tens">00</span>
+      </div>
     </main>
   );
 }
