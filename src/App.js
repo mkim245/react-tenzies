@@ -1,13 +1,17 @@
 import React from "react"
+// import ReactDOM from 'react-dom/client';
 import Die from "./die"
 import './style.css';
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
+import MyStopwatch from "./Stopwatch";
+
 
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
   const [countRoll, setCountRoll] = React.useState(1);
+  const [playTimer, setPlayTimer] = React.useState();
 
   function generateNewDie() { //helper function
     return {
@@ -56,6 +60,7 @@ function App() {
     />
   ))
 
+
   React.useEffect(() => {
     const allHeld = dice.every(die => die.isHeld)
     const firstValue = dice[0].value
@@ -81,9 +86,7 @@ function App() {
       >
         {tenzies ? "New Game" : `Roll (${countRoll})`}
       </button>
-      <div className="time">
-        <span className="seconds">00</span>:<span className="tens">00</span>
-      </div>
+      <MyStopwatch />
     </main>
   );
 }
