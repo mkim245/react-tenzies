@@ -12,7 +12,7 @@ export default function MyStopwatch() {
 
 
   return (
-    <div style={{textAlign: 'center'}}>
+    <div>
       <div className="time">
       <span> {minutes} m</span>:<span> {seconds} s</span>
       </div>

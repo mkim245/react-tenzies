@@ -10,8 +10,7 @@ import MyStopwatch from "./Stopwatch";
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
-  const [countRoll, setCountRoll] = React.useState(1);
-  const [playTimer, setPlayTimer] = React.useState();
+  const [countRoll, setCountRoll] = React.useState(0);
 
   function generateNewDie() { //helper function
     return {
@@ -68,7 +67,7 @@ function App() {
     if (allHeld && allSameValue) {
       setTenzies(true)
       console.log("You won!")
-      setCountRoll(0)
+      setCountRoll(-1)
     }
   }, [dice])
 
@@ -80,12 +79,14 @@ function App() {
       <div className="dice-container">
         {dieElements}
       </div>
+      <div>[Roll Button]</div>
       <button
         className="roll-dice"
         onClick={rollDice}
-      >
+        >
         {tenzies ? "New Game" : `Roll (${countRoll})`}
       </button>
+      <div>[Timer]</div>
       <MyStopwatch />
     </main>
   );
