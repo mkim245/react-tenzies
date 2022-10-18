@@ -1,11 +1,11 @@
 import React from "react"
-// import ReactDOM from 'react-dom/client';
+// import ReactDOM from 'react-dom';
 import Die from "./die"
 import './style.css';
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
 import MyStopwatch from "./Stopwatch";
-
+import Ranking from "./Rank";
 
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
@@ -66,7 +66,7 @@ function App() {
     const allSameValue = dice.every(die => die.value === firstValue)
     if (allHeld && allSameValue) {
       setTenzies(true)
-      console.log("You won!")
+      alert(`You did! You rolled ${countRoll} times`)
       setCountRoll(-1)
     }
   }, [dice])
@@ -74,20 +74,25 @@ function App() {
   return (
     <main>
       {tenzies && <Confetti />}
+      <div className="containers">
       <h1 className="title">Tenzies</h1>
       <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-      <div className="dice-container">
-        {dieElements}
-      </div>
-      <div>[Roll Button]</div>
-      <button
-        className="roll-dice"
-        onClick={rollDice}
+        <div className="dice-container">
+          {dieElements}
+        </div>
+        <div>[Roll Button]</div>
+        <button
+          className="roll-dice"
+          onClick={rollDice}
         >
-        {tenzies ? "New Game" : `Roll (${countRoll})`}
-      </button>
-      <div>[Timer]</div>
-      <MyStopwatch />
+          {tenzies ? "New Game" : `Roll (${countRoll})`}
+        </button>
+        <div>[Timer]</div>
+        <MyStopwatch />
+      </div>
+      <div>
+        <Ranking />
+      </div>
     </main>
   );
 }
