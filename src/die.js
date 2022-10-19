@@ -30,10 +30,10 @@ export default function Die(props) {
     if (number === 4) {
       return <><div className="dice4" style={styles}
         onClick={props.holdDice}>
-        <div class="column">
+        <div className="column">
           <span className="dot"></span>
           <span className="dot"></span></div>
-        <div class="column">
+        <div className="column">
           <span className="dot"></span>
           <span className="dot"></span></div>
       </div></>
@@ -41,12 +41,12 @@ export default function Die(props) {
     if (number === 5) {
       return <><div className="dice5" style={styles}
         onClick={props.holdDice}>
-        <div class="column">
+        <div className="column">
           <span className="dot"></span>
           <span className="dot"></span></div>
-        <div class="column">
+        <div className="column">
           <span className="dot"></span></div>
-        <div class="column">
+        <div className="column">
           <span className="dot"></span>
           <span className="dot"></span></div>
       </div></>
@@ -54,11 +54,11 @@ export default function Die(props) {
     if (number === 6) {
       return <><div className="dice6" style={styles}
         onClick={props.holdDice}>
-        <div class="column">
+        <div className="column">
           <span className="dot"></span>
           <span className="dot"></span>
           <span className="dot"></span></div>
-        <div class="column">
+        <div className="column">
           <span className="dot"></span>
           <span className="dot"></span>
           <span className="dot"></span></div>

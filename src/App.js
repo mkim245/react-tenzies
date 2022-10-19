@@ -11,6 +11,27 @@ function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
   const [countRoll, setCountRoll] = React.useState(0);
+  const [players, setPlayers] = React.useState(
+    () => JSON.parse(localStorage.getItem("player")) || []
+  )
+  const [currentPlayerId, setCurrentPlayerId] = React.useState(
+    (players[0] && players[0].id) || ""
+  )
+
+  function createNewPlayer() {
+    const newPlayer = {
+      id: nanoid(),
+      name: "player name"
+    }
+    setPlayers(prevPlayer => [newPlayer, ...prevPlayer])
+    setCurrentPlayerId(newPlayer.id)
+  }
+
+  function deletePlayer(event, playerId) {
+    event.stopPropagation()
+    console.log("delete note", playerId)
+    setPlayers(oldPlayers => oldPlayers.filter(player => player.id !== playerId))
+}
 
   function generateNewDie() { //helper function
     return {
@@ -59,8 +80,8 @@ function App() {
     />
   ))
 
-
   React.useEffect(() => {
+    localStorage.setItem("players", JSON.stringify(players))
     const allHeld = dice.every(die => die.isHeld)
     const firstValue = dice[0].value
     const allSameValue = dice.every(die => die.value === firstValue)
@@ -75,8 +96,8 @@ function App() {
     <main>
       {tenzies && <Confetti />}
       <div className="containers">
-      <h1 className="title">Tenzies</h1>
-      <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <h1 className="title">Tenzies</h1>
+        <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
         <div className="dice-container">
           {dieElements}
         </div>
@@ -91,7 +112,12 @@ function App() {
         <MyStopwatch />
       </div>
       <div>
-        <Ranking />
+        <Ranking
+          players={players}
+          setCurrentPlayerId={setCurrentPlayerId}
+          newPlayer={createNewPlayer}
+          deletePlayer={deletePlayer}
+        />
       </div>
     </main>
   );
