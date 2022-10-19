@@ -6,6 +6,7 @@ import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
 import MyStopwatch from "./Stopwatch";
 import Ranking from "./Rank";
+const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
 
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
@@ -17,11 +18,15 @@ function App() {
   const [currentPlayerId, setCurrentPlayerId] = React.useState(
     (players[0] && players[0].id) || ""
   )
+  const shortName = uniqueNamesGenerator({
+    dictionaries: [adjectives, animals, colors], // colors can be omitted here as not used
+    length: 2
+  });
 
   function createNewPlayer() {
     const newPlayer = {
       id: nanoid(),
-      name: "player name"
+      name: shortName
     }
     setPlayers(prevPlayer => [newPlayer, ...prevPlayer])
     setCurrentPlayerId(newPlayer.id)

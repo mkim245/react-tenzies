@@ -34,11 +34,10 @@ main {
   height: auto;
   width: 800px;
   border-radius: 5px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: left;
   margin-top: 10px;
 }
 
