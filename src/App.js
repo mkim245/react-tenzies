@@ -13,20 +13,21 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false);
   const [countRoll, setCountRoll] = React.useState(0);
   const [players, setPlayers] = React.useState(
-    () => JSON.parse(localStorage.getItem("player")) || []
+    () => JSON.parse(localStorage.getItem("players")) || []
   )
   const [currentPlayerId, setCurrentPlayerId] = React.useState(
     (players[0] && players[0].id) || ""
   )
   const shortName = uniqueNamesGenerator({
-    dictionaries: [adjectives, animals, colors], // colors can be omitted here as not used
-    length: 2
+    dictionaries: [animals, colors],
+    length: 1
   });
 
   function createNewPlayer() {
     const newPlayer = {
       id: nanoid(),
-      name: shortName
+      name: shortName,
+      roll: countRoll,
     }
     setPlayers(prevPlayer => [newPlayer, ...prevPlayer])
     setCurrentPlayerId(newPlayer.id)

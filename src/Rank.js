@@ -4,7 +4,8 @@ export default function Ranking(props) {
   const playerElements = props.players.map((player, index) => (
     <div key={player.id}>
       <div className="player-list">
-        <h4 className="text-snippet">{player.name.split("\n")[0]}</h4>
+        <h4 className="player-name">{player.name}</h4>
+        <h4 className="player-score">{player.roll}</h4>
         <button
           className="delete-btn"
           onClick={(e) => props.deletePlayer(e, player.id)}
