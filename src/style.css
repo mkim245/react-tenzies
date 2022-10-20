@@ -186,8 +186,10 @@ main {
 }
 
 .player-addition {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 50px;
+  justify-content: space-evenly;
   align-items: center;
 }
 

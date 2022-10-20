@@ -19,7 +19,8 @@ export default function Ranking(props) {
   return (
     <section className="rank-container">
       <div className="player-addition">
-        <h3>Players</h3>
+        <h4>Player</h4>
+        <h4>Roll_Times</h4>
         <button className="new-player" onClick={props.newPlayer}>+</button>
       </div>
       {playerElements}
