@@ -94,6 +94,7 @@ function App() {
     if (allHeld && allSameValue) {
       setTenzies(true)
       alert(`You did! You rolled ${countRoll} times`)
+      players[0].roll = countRoll
       setCountRoll(-1)
     }
   }, [dice])
