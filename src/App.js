@@ -4,8 +4,10 @@ import Die from "./die"
 import './style.css';
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
-import MyStopwatch from "./Stopwatch";
+// import MyStopwatch from "./Stopwatch";
 import Ranking from "./Rank";
+import { useStopwatch } from 'react-timer-hook';
+
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
 
 function App() {
@@ -23,10 +25,22 @@ function App() {
     length: 1
   });
 
+  const {
+    seconds,
+    minutes,
+    start,
+    pause,
+    reset,
+  } = useStopwatch({ autoStart: true });
+
+  const [timerPause, setTimerPause] = React.useState(true)
+  const [playTime, setPlayTime] = React.useState(0)
+
   function createNewPlayer() {
     const newPlayer = {
       id: nanoid(),
       name: shortName,
+      time: playTime,
       roll: countRoll,
     }
     setPlayers(prevPlayer => [newPlayer, ...prevPlayer])
@@ -37,7 +51,7 @@ function App() {
     event.stopPropagation()
     console.log("delete note", playerId)
     setPlayers(oldPlayers => oldPlayers.filter(player => player.id !== playerId))
-}
+  }
 
   function generateNewDie() { //helper function
     return {
@@ -93,11 +107,14 @@ function App() {
     const allSameValue = dice.every(die => die.value === firstValue)
     if (allHeld && allSameValue) {
       setTenzies(true)
+      pause()
       // alert(`You did! You rolled ${countRoll} times`)
       players[0].roll = countRoll
+      players[0].time = playTime
       setCountRoll(-1)
     }
   }, [dice])
+
 
   return (
     <main>
@@ -116,12 +133,21 @@ function App() {
           {tenzies ? "New Game" : `Roll (${countRoll})`}
         </button>
         <div>[Timer]</div>
-        <MyStopwatch />
+
+        {/* <MyStopwatch
+          start={timerStart}
+        /> */}
+        <div className="time">
+          <span> {minutes} m</span>:<span> {seconds} s</span>
+        </div>
+        <button onClick={start}>Start</button>
+        <button onClick={pause}>Stop</button>
+        <button onClick={reset}>Reset</button>
       </div>
       <div>
         <Ranking
           players={players}
-          setCurrentPlayerId={setCurrentPlayerId}
+          // setCurrentPlayerId={setCurrentPlayerId}
           newPlayer={createNewPlayer}
           deletePlayer={deletePlayer}
         />
