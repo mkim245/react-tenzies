@@ -113,6 +113,9 @@ function App() {
       players[0].time = playTime
       setCountRoll(-1)
     }
+    if (countRoll === 0) {
+      reset();
+    }
   }, [dice])
 
 
