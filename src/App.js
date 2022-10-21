@@ -4,16 +4,16 @@ import Die from "./die"
 import './style.css';
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
-// import MyStopwatch from "./Stopwatch";
+import MyStopwatch from "./Stopwatch";
 import Ranking from "./Rank";
 import { useStopwatch } from 'react-timer-hook';
 
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
-
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
   const [countRoll, setCountRoll] = React.useState(0);
+  const [playTime, setPlayTime] = React.useState(0)
   const [players, setPlayers] = React.useState(
     () => JSON.parse(localStorage.getItem("players")) || []
   )
@@ -32,9 +32,6 @@ function App() {
     pause,
     reset,
   } = useStopwatch({ autoStart: true });
-
-  const [timerPause, setTimerPause] = React.useState(true)
-  const [playTime, setPlayTime] = React.useState(0)
 
   function createNewPlayer() {
     const newPlayer = {
@@ -76,11 +73,12 @@ function App() {
           ? die
           : generateNewDie()
       }))
+      setCountRoll(countRoll + 1)
     } else {
       setTenzies(false)
       setDice(allNewDice())
+      setCountRoll(0)
     }
-    setCountRoll(countRoll + 1)
   }
 
   function holdDice(id) {
@@ -105,19 +103,18 @@ function App() {
     const allHeld = dice.every(die => die.isHeld)
     const firstValue = dice[0].value
     const allSameValue = dice.every(die => die.value === firstValue)
-    if (allHeld && allSameValue) {
-      setTenzies(true)
-      pause()
-      // alert(`You did! You rolled ${countRoll} times`)
-      players[0].roll = countRoll
-      players[0].time = playTime
-      setCountRoll(-1)
-    }
     if (countRoll === 0) {
       reset();
     }
-  }, [dice])
-
+    if (allHeld && allSameValue) {
+      setTenzies(true)
+      // alert(`You did! You rolled ${countRoll} times`)
+      players[0].time = minutes * 60 + seconds
+      players[0].roll = countRoll
+      pause()
+      setCountRoll(0)
+    }
+  }, [dice, playTime])
 
   return (
     <main>
@@ -136,16 +133,13 @@ function App() {
           {tenzies ? "New Game" : `Roll (${countRoll})`}
         </button>
         <div>[Timer]</div>
-
-        {/* <MyStopwatch
-          start={timerStart}
-        /> */}
-        <div className="time">
-          <span> {minutes} m</span>:<span> {seconds} s</span>
-        </div>
-        <button onClick={start}>Start</button>
-        <button onClick={pause}>Stop</button>
-        <button onClick={reset}>Reset</button>
+        <MyStopwatch
+        seconds={seconds}
+        minutes={minutes}
+          start={start}
+          pause={pause}
+          reset={reset}
+        />
       </div>
       <div>
         <Ranking

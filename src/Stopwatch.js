@@ -1,23 +1,15 @@
-// import React from 'react';
-// import { useStopwatch } from 'react-timer-hook';
+import React from 'react';
 
-// export default function MyStopwatch(props) {
-//   const {
-//     seconds,
-//     minutes,
-//     start,
-//     pause,
-//     reset,
-//   } = useStopwatch({ autoStart: props.start });
+export default function MyStopwatch(props) {
 
-// return (
-//   <div>
-//     <div className="time">
-//       <span> {minutes} m</span>:<span> {seconds} s</span>
-//     </div>
-//     <button onClick={start}>Start</button>
-//     <button onClick={pause}>Stop</button>
-//     <button onClick={reset}>Reset</button>
-//   </div>
-// );
-// }
+return (
+  <div>
+    <div className="time">
+      <span> {props.minutes} m</span>:<span> {props.seconds} s</span>
+    </div>
+    <button onClick={props.start}>Start</button>
+    <button onClick={props.pause}>Stop</button>
+    <button onClick={props.reset}>Reset</button>
+  </div>
+);
+}
