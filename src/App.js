@@ -93,7 +93,7 @@ function App() {
     const allSameValue = dice.every(die => die.value === firstValue)
     if (allHeld && allSameValue) {
       setTenzies(true)
-      alert(`You did! You rolled ${countRoll} times`)
+      // alert(`You did! You rolled ${countRoll} times`)
       players[0].roll = countRoll
       setCountRoll(-1)
     }

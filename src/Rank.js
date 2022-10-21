@@ -6,6 +6,7 @@ export default function Ranking(props) {
       <div className="player-list">
         <h4 className="player-name">{player.name}</h4>
         <h4 className="player-score">{player.roll}</h4>
+        <h4 className="player-time">{player.time}</h4>
         <button
           className="delete-btn"
           onClick={(e) => props.deletePlayer(e, player.id)}
@@ -21,6 +22,7 @@ export default function Ranking(props) {
       <div className="player-addition">
         <h4>Player</h4>
         <h4>Roll_Times</h4>
+        <h4>Time</h4>
         <button className="new-player" onClick={props.newPlayer}>+</button>
       </div>
       {playerElements}
