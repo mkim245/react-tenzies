@@ -28,6 +28,7 @@ function App() {
   const {
     seconds,
     minutes,
+    isRunning,
     start,
     pause,
     reset,
@@ -103,7 +104,7 @@ function App() {
     const allHeld = dice.every(die => die.isHeld)
     const firstValue = dice[0].value
     const allSameValue = dice.every(die => die.value === firstValue)
-    if (countRoll === 0) {
+    if (countRoll === 0 && !isRunning ) { //prevent reset from being fired at clicking dice
       reset();
     }
     if (allHeld && allSameValue) {

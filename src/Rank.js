@@ -22,7 +22,7 @@ export default function Ranking(props) {
       <div className="player-addition">
         <h4>Player</h4>
         <h4>Roll_Times</h4>
-        <h4>Time</h4>
+        <h4>Time_Seconds</h4>
         <button className="new-player" onClick={props.newPlayer}>+</button>
       </div>
       {playerElements}
