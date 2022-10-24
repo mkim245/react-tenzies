@@ -26,13 +26,13 @@ npm start
 ```
 ## Screenshots
 
-!["Start New Game"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/start_game_with_new_player.png?raw=true)
+!["Start New Game"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/start_game_with_new_player.PNG?raw=true)
 
-!["Click the Same Dice"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/select_the_same_dice_for_each_roll.png?raw=true)
+!["Click the Same Dice"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/select_the_same_dice_for_each_roll.PNG?raw=true)
 
-!["End of Game"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/finish_game.png?raw=true)
+!["End of Game"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/finish_game.PNG?raw=true)
 
-!["List of Game Result"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/game_result.png?raw=true)
+!["List of Game Result"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/game_result.PNG?raw=true)
 
 ## Dependencies
     "@testing-library/jest-dom": "^5.16.5",
