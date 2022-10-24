@@ -19,25 +19,20 @@ Game features?
 
 Install dependencies with `npm install` in both server and client folders.
 
-## Running Backend from server folder
-```sh
-npm run dev
-```
-
-## Running Frontend from client folder
+## Running
 
 ```sh
 npm start
 ```
 ## Screenshots
 
-!["Start New Game"](https://github.com/mkim245/react-tenzies/tree/master/public/screenshots/start_game_with_new_player.png?raw=true)
+!["Start New Game"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/start_game_with_new_player.png?raw=true)
 
-!["Click the Same Dice"](https://github.com/mkim245/react-tenzies/tree/master/public/screenshots/select_the_same_dice_for_each_roll.png?raw=true)
+!["Click the Same Dice"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/select_the_same_dice_for_each_roll.png?raw=true)
 
-!["End of Game"](https://github.com/mkim245/react-tenzies/tree/master/public/screenshots/finish_game.png?raw=true)
+!["End of Game"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/finish_game.png?raw=true)
 
-!["List of Game Result"](https://github.com/mkim245/react-tenzies/tree/master/public/screenshots/game_result.png?raw=true)
+!["List of Game Result"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/game_result.png?raw=true)
 
 ## Dependencies
     "@testing-library/jest-dom": "^5.16.5",
