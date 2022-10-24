@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Dice matching game
+Single page React application game.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How to play?
+ - Add a new player by clicking + in the lower box.
+ - Click each die to freeze it at its current value between rolls.
+ - Roll until all dice are the same.
+ - See the result of the roll number and elapsed time in the lower box.
+ - Press new start for a new game with the automatic timer start.
 
-## Available Scripts
+Game features?
+ - Game results are recorded.
+ - Player names are randomly created.
+ - Stopwatch can be manually controlled.
+ - Players can be removed from a list of results by clicking a garbage button.
 
-In the project directory, you can run:
 
-### `npm start`
+## Setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Install dependencies with `npm install` in both server and client folders.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Running Backend from server folder
+```sh
+npm run dev
+```
 
-### `npm test`
+## Running Frontend from client folder
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+npm start
+```
+## Screenshots
 
-### `npm run build`
+!["Start New Game"](https://github.com/mkim245/react-tenzies/tree/master/public/screenshots/start_game_with_new_player.png?raw=true)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+!["Click the Same Dice"](https://github.com/mkim245/react-tenzies/tree/master/public/screenshots/select_the_same_dice_for_each_roll.png?raw=true)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+!["End of Game"](https://github.com/mkim245/react-tenzies/tree/master/public/screenshots/finish_game.png?raw=true)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+!["List of Game Result"](https://github.com/mkim245/react-tenzies/tree/master/public/screenshots/game_result.png?raw=true)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Dependencies
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "nanoid": "^4.0.0",
+    "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "react-timer-hook": "^3.0.5",
+    "unique-names-generator": "^4.7.1",
+    "web-vitals": "^2.1.4"
