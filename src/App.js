@@ -1,5 +1,4 @@
 import React from "react"
-// import ReactDOM from 'react-dom';
 import Die from "./die"
 import './style.css';
 import { nanoid } from "nanoid"
@@ -8,7 +7,7 @@ import MyStopwatch from "./Stopwatch";
 import Ranking from "./Rank";
 import { useStopwatch } from 'react-timer-hook';
 
-const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
+const { uniqueNamesGenerator, colors, animals } = require('unique-names-generator');
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
@@ -17,9 +16,7 @@ function App() {
   const [players, setPlayers] = React.useState(
     () => JSON.parse(localStorage.getItem("players")) || []
   )
-  const [currentPlayerId, setCurrentPlayerId] = React.useState(
-    (players[0] && players[0].id) || ""
-  )
+
   const shortName = uniqueNamesGenerator({
     dictionaries: [animals, colors],
     length: 1
@@ -42,7 +39,6 @@ function App() {
       roll: countRoll,
     }
     setPlayers(prevPlayer => [newPlayer, ...prevPlayer])
-    setCurrentPlayerId(newPlayer.id)
   }
 
   function deletePlayer(event, playerId) {
@@ -109,7 +105,6 @@ function App() {
     }
     if (allHeld && allSameValue) {
       setTenzies(true)
-      // alert(`You did! You rolled ${countRoll} times`)
       players[0].time = minutes * 60 + seconds
       players[0].roll = countRoll
       pause()
@@ -145,7 +140,6 @@ function App() {
       <div>
         <Ranking
           players={players}
-          // setCurrentPlayerId={setCurrentPlayerId}
           newPlayer={createNewPlayer}
           deletePlayer={deletePlayer}
         />

@@ -1,5 +1,5 @@
-# Dice matching game
-Single page React application game.
+# Dice Matching Game
+Single page React application game. This project was carried out with the addition of new features to a tenzies-game project (https://scrimba.com/playlist/pYkgpAP)
 
 How to play?
  - Add a new player by clicking + in the lower box.
@@ -33,6 +33,11 @@ npm start
 !["End of Game"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/finish_game.PNG?raw=true)
 
 !["List of Game Result"](https://github.com/mkim245/react-tenzies/blob/master/public/screenshots/game_result.PNG?raw=true)
+
+
+## Project Stack
+
+JavaScript, React, Node, HTML
 
 ## Dependencies
     "@testing-library/jest-dom": "^5.16.5",
