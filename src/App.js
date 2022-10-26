@@ -14,6 +14,7 @@ function App() {
   const [gameStart, setGameStart] = React.useState(true);
   const [countRoll, setCountRoll] = React.useState(0);
   const [playTime, setPlayTime] = React.useState(0)
+  const [autoStart, setAutoStart] = React.useState(false);
   const [players, setPlayers] = React.useState(
     () => JSON.parse(localStorage.getItem("players")) || []
   )
@@ -30,7 +31,7 @@ function App() {
     start,
     pause,
     reset,
-  } = useStopwatch({ autoStart: true });
+  } = useStopwatch({ autoStart: autoStart });
 
   function createNewPlayer() {
     const newPlayer = {
@@ -75,7 +76,7 @@ function App() {
     } else {
       setTenzies(false)
       setDice(allNewDice())
-      setCountRoll(0)
+      setCountRoll(1)
     }
     setGameStart(false)
   }
@@ -102,7 +103,9 @@ function App() {
     const allHeld = dice.every(die => die.isHeld)
     const firstValue = dice[0].value
     const allSameValue = dice.every(die => die.value === firstValue)
-    if (countRoll === 0 && !isRunning ) { //prevent reset from being fired at clicking dice
+    if (gameStart) {
+      pause();
+    } else if (countRoll === 1 && !isRunning) { //prevent reset from being fired at clicking dice
       reset();
     }
     if (allHeld && allSameValue) {
@@ -111,7 +114,7 @@ function App() {
       players[0].time = minutes * 60 + seconds
       players[0].roll = countRoll
       pause()
-      setCountRoll(0)
+      setCountRoll(1)
     }
   }, [dice, playTime])
 
