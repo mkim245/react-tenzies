@@ -11,6 +11,7 @@ const { uniqueNamesGenerator, colors, animals } = require('unique-names-generato
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
+  const [gameStart, setGameStart] = React.useState(true);
   const [countRoll, setCountRoll] = React.useState(0);
   const [playTime, setPlayTime] = React.useState(0)
   const [players, setPlayers] = React.useState(
@@ -76,6 +77,7 @@ function App() {
       setDice(allNewDice())
       setCountRoll(0)
     }
+    setGameStart(false)
   }
 
   function holdDice(id) {
@@ -105,6 +107,7 @@ function App() {
     }
     if (allHeld && allSameValue) {
       setTenzies(true)
+      setGameStart(false)
       players[0].time = minutes * 60 + seconds
       players[0].roll = countRoll
       pause()
@@ -126,7 +129,7 @@ function App() {
           className="roll-dice"
           onClick={rollDice}
         >
-          {tenzies ? "New Game" : `Roll (${countRoll})`}
+          {tenzies || gameStart ? "New Game" : `Roll (${countRoll})`}
         </button>
         <div>[Timer]</div>
         <MyStopwatch
