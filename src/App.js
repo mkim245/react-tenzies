@@ -38,7 +38,7 @@ function App() {
       id: nanoid(),
       name: shortName,
       time: playTime,
-      roll: countRoll,
+      roll: 0,
     }
     setPlayers(prevPlayer => [newPlayer, ...prevPlayer])
   }
