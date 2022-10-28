@@ -125,7 +125,7 @@ function App() {
       {tenzies && <Confetti />}
       <div className="containers">
         <h1 className="title">Match Dice</h1>
-        <p className="instructions">Rule: Roll until all dice are the same. Click each die to freeze it at its current value between rolls. Click (+) in the lower box to add a new player. Click a garbage icon to remove it.</p>
+        <p className="instructions">Rule: Roll until all dice are the same. Click each die to freeze it at its current value between rolls. Click (+) in the lower box to add a new player. Click a garbage icon to remove a player.</p>
         <div className="dice-container">
           {dieElements}
         </div>
